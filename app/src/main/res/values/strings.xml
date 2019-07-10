@@ -3,4 +3,10 @@
     <string name="edit_og">Original gravity</string>
     <string name="edit_fg">Final gravity</string>
     <string name="button_calc">Calculate</string>
+    <string name="invalid_og">Invalid original gravity</string>
+    <string name="invalid_fg">Invalid final gravity</string>
+    <string name="fg_higher_og">Final gravity cannot be higher than original gravity</string>
+    <string name="attenuation_too_great">Too great an attenuation</string>
+    <string name="result_string">ABV %.2f%%\n%d.%d%% Apparent attenuation</string>
+    <string name="final_result">OG: %d\nFG: %d\n%s</string>
 </resources>

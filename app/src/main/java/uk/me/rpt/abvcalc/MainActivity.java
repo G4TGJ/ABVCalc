@@ -62,16 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
         if( og == 0 )
         {
-            result += "Invalid OG ";
+            result += getString(R.string.invalid_og) + "\n";
         }
         if( fg == 0 )
         {
-            result += "Invalid FG ";
+            result += getString(R.string.invalid_fg) + "\n";
         }
 
         if( og !=0 && fg != 0)
         {
-            result = "OG: " + og + "\nFG: " + fg + "\n" + CalculateResult( og, fg );
+            result = String.format(getString(R.string.final_result), og, fg, CalculateResult( og, fg ) );
         }
 
         TextView textView = findViewById(R.id.textView_result);
@@ -97,15 +97,15 @@ public class MainActivity extends AppCompatActivity {
         /* Check that the og and fg are sensible */
         if( !ValidGravity(og))
         {
-            result = "Invalid original gravity";
+            result = getString(R.string.invalid_og);
         }
         else if( !ValidGravity(fg))
         {
-            result = "Invalid final gravity";
+            result = getString(R.string.invalid_fg);
         }
         else if( fg > og )
         {
-            result = "Final gravity cannot be higher than original gravity";
+            result = getString(R.string.fg_higher_og);
         }
         else
         {
@@ -174,13 +174,13 @@ public class MainActivity extends AppCompatActivity {
 
             if( f == 0 )
             {
-                result = "Too great an attenuation";
+                result = getString(R.string.attenuation_too_great);
             }
             else
             {
                 /* Calculate the alcohol by volume as a percentage */
                 float abv = (og_points - fg_points) * (float) f;
-                result = String.format("ABV %.2f%%\n%d.%d%% Apparent attenuation", abv, apparent_attenuation/10, apparent_attenuation % 10 );
+                result = String.format(getString(R.string.result_string), abv, apparent_attenuation/10, apparent_attenuation % 10 );
             }
         }
 
