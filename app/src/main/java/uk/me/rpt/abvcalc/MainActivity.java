@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -44,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
             {
                 gravity = 0;
             }
+
+            if( gravity != 0 )
+            {
+                String text = String.format("%d", gravity);
+                editText.setText( text );
+            }
         }
         catch ( NumberFormatException e )
         {
@@ -53,7 +60,17 @@ public class MainActivity extends AppCompatActivity {
         return gravity;
     }
 
-    public void calcABV(View view)
+    private void hideSoftKeyBoard()
+    {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+        if(imm.isAcceptingText())
+        { // verify if the soft keyboard is open
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+
+    public void onCalcABV(View view)
     {
         String result = "";
 
@@ -186,4 +203,47 @@ public class MainActivity extends AppCompatActivity {
 
         return result;
     }
+
+    public void onCorrect(View view)
+    {
+        String result = "";
+
+        long gravity = getGravity(R.id.editText_gravity);
+        Double temp = 0.0;
+        Double calib = 0.0;
+
+        hideSoftKeyBoard();
+
+        try
+        {
+            // Get the temperatures as decimals
+            EditText editText_temp = (EditText) findViewById( R.id.editText_temp );
+            temp = Double.parseDouble(editText_temp.getText().toString());
+            EditText editText_calib = (EditText) findViewById( R.id.editText_calib );
+            calib = Double.parseDouble(editText_calib.getText().toString());
+        }
+        catch ( NumberFormatException e )
+        {
+            gravity = 0;
+        }
+
+
+        if( gravity == 0 )
+        {
+            result += getString(R.string.invalid_input) + "\n";
+        }
+        else
+        {
+            Double densitySample = 1-(temp+288.9414)/(508929.2*(temp+68.12963))*(temp-3.9863)*(temp-3.9863);
+            Double densityCalib = 1-(calib+288.9414)/(508929.2*(calib+68.12963))*(calib-3.9863)*(calib-3.9863);
+
+            gravity += 1000*(densityCalib/densitySample-1);
+
+            result = "Corrected gravity " + gravity;
+        }
+
+        TextView textView = findViewById(R.id.textView_correct);
+        textView.setText( result );
+    }
+
 }

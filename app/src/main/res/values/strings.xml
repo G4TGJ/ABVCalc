@@ -5,8 +5,13 @@
     <string name="button_calc">Calculate</string>
     <string name="invalid_og">Invalid original gravity</string>
     <string name="invalid_fg">Invalid final gravity</string>
+    <string name="invalid_input">Invalid input</string>
     <string name="fg_higher_og">Final gravity cannot be higher than original gravity</string>
     <string name="attenuation_too_great">Too great an attenuation</string>
     <string name="result_string">ABV %.2f%%\n%d.%d%% Apparent attenuation</string>
     <string name="final_result">OG: %d\nFG: %d\n%s</string>
+    <string name="button_correct">Correct</string>
+    <string name="edit_gravity">Gravity</string>
+    <string name="edit_temp">Sample temperature</string>
+    <string name="edit_calib">Calibration temperature</string>
 </resources>

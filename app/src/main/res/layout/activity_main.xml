@@ -38,26 +38,91 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:onClick="calcABV"
+        android:onClick="onCalcABV"
         android:text="@string/button_calc"
         app:layout_constraintStart_toEndOf="@+id/editText_fg"
         app:layout_constraintTop_toTopOf="@+id/editText_fg" />
 
     <TextView
         android:id="@+id/textView_result"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:typeface="serif"
         app:fontFamily="sans-serif-black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editText_fg"
         app:layout_constraintTop_toBottomOf="@+id/editText_fg" />
+
+    <EditText
+        android:id="@+id/editText_gravity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/edit_gravity"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_result" />
+
+    <EditText
+        android:id="@+id/editText_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/edit_temp"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_gravity" />
+
+    <EditText
+        android:id="@+id/editText_calib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/edit_calib"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_temp" />
+
+    <TextView
+        android:id="@+id/textView_correct"
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="18sp"
+        android:typeface="serif"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editText_calib"
+        app:layout_constraintTop_toBottomOf="@+id/editText_calib" />
+
+    <Button
+        android:id="@+id/button_correct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:onClick="onCorrect"
+        android:text="@string/button_correct"
+        app:layout_constraintStart_toEndOf="@+id/editText_gravity"
+        app:layout_constraintTop_toTopOf="@+id/editText_gravity" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
