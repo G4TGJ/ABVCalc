@@ -15,7 +15,7 @@ yes | /opt/android-sdk-linux/tools//bin/sdkmanager --licenses'''
     }
     stage('Deliver') {
       steps {
-        archiveArtifacts '*'
+        archiveArtifacts '**'
       }
     }
   }
