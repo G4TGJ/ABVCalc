@@ -11,11 +11,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'ls -al /opt/android-sdk-linux/licenses'
-        sh 'ls -al /home/Android/Sdk'
         sh '''yes | /opt/android-sdk-linux/tools//bin/sdkmanager --update
 '''
         sh 'yes | /opt/android-sdk-linux/tools//bin/sdkmanager --licenses'
+        sh 'ls -al /opt/android-sdk-linux/licenses'
+        sh 'ls -al /home/Android/Sdk/licenses'
         sh './gradlew build'
       }
     }
