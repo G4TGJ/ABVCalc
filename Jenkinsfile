@@ -17,6 +17,7 @@ pipeline {
     stage('Deliver') {
       steps {
         archiveArtifacts 'app/build/outputs/apk/**/*.apk'
+        archiveArtifacts 'app/build/reports/lint-results.html'
       }
     }
   }
