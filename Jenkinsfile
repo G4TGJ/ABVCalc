@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'xmartlabs/jenkins-android'
+      image 'xmartlabs/jenkins-android:lts'
     }
 
   }
