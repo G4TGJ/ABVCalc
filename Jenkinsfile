@@ -13,5 +13,10 @@ yes | /opt/android-sdk-linux/tools//bin/sdkmanager --licenses'''
         sh './gradlew build'
       }
     }
+    stage('Deliver') {
+      steps {
+        archiveArtifacts '*'
+      }
+    }
   }
 }
