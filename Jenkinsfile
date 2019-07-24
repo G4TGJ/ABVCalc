@@ -9,13 +9,14 @@ pipeline {
     stage('Build') {
       steps {
         sh '''yes | /opt/android-sdk-linux/tools//bin/sdkmanager --update
-yes | /opt/android-sdk-linux/tools//bin/sdkmanager --licenses'''
+'''
+        sh 'yes | /opt/android-sdk-linux/tools//bin/sdkmanager --licenses'
         sh './gradlew build'
       }
     }
     stage('Deliver') {
       steps {
-        archiveArtifacts '**'
+        archiveArtifacts 'app/build/outputs/apk/**/*.apk'
       }
     }
   }
