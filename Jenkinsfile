@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'yes | sdkmanager --licenses'
+        sh '''yes | /var/lib/jenkins/tools/android-sdk/tools/bin/sdkmanager --update
+yes | /var/lib/jenkins/tools/android-sdk/tools/bin/sdkmanager --licenses'''
         sh './gradlew build'
       }
     }
