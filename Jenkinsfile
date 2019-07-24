@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'xmartlabs/jenkins-android:lts'
+      args '-v /root/.gradle:/root/.gradle'
     }
 
   }
