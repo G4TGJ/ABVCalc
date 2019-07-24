@@ -11,6 +11,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'find / -name licenses'
         sh '''yes | /opt/android-sdk-linux/tools//bin/sdkmanager --update
 '''
         sh 'yes | /opt/android-sdk-linux/tools//bin/sdkmanager --licenses'
