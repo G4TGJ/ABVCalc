@@ -8,6 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'yes | sdkmanager --licenses'
         sh './gradlew build'
       }
     }
